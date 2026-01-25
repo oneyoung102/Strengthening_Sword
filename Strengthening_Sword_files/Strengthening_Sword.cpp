@@ -56,7 +56,7 @@ ofstream fout;
 ifstream fin;
 
 /////////////////////////////////////////////////////////////////////////
-void textcolor(int foreground, int background) //±ÛÀÚ»ö 
+void textcolor(int foreground, int background) //è¶Šåˆ‡äº‹ 
 { 
 int color=foreground+background*16; 
 SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), color); 
@@ -70,11 +70,11 @@ void Gotoxy(int x, int y)          //gotxy
 }
 ///////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////
-void Cursorview()             //Ä¿¼­ »èÁ¦ 
+void Cursorview()             //æœ•è¾ž è‚¢è–¦ 
 {
     CONSOLE_CURSOR_INFO cursorInfo = { 0, };
-    cursorInfo.dwSize = 1; //Ä¿¼­ ±½±â (1 ~ 100)
-    cursorInfo.bVisible = FALSE; //Ä¿¼­ Visible TRUE(º¸ÀÓ) FALSE(¼û±è)
+    cursorInfo.dwSize = 1; //æœ•è¾ž å™‚å¥„ (1 ~ 100)
+    cursorInfo.bVisible = FALSE; //æœ•è¾ž Visible TRUE(å·¦ç¸¾) FALSE(éœ€æ²¿)
     SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 }
 /////////////////////////////////////////////////////////////////////////
@@ -92,24 +92,24 @@ void int_Write(int foreground, int background, int x, int y, int* data){
 
 
 void Start_sword(int x, int y){
-			Write(BROWN,BLACK,x,y,"¡á");
-	Write(DARKGRAY,BLACK,x-2,y,"¡ë");
-	Write(DARKGRAY,BLACK,x-4,y,"¡á");
-	Write(DARKGRAY,BLACK,x-4,y-1,"¡ã");
-	Write(DARKGRAY,BLACK,x-4,y+1,"¡å");
+			Write(BROWN,BLACK,x,y,"ï¼");
+	Write(DARKGRAY,BLACK,x-2,y,"Â°");
+	Write(DARKGRAY,BLACK,x-4,y,"ï¼");
+	Write(DARKGRAY,BLACK,x-4,y-1,"ï¼œ");
+	Write(DARKGRAY,BLACK,x-4,y+1,"â‰¦");
 	Write(LIGHTGRAY,LIGHTGRAY,x-19,y,"abcdefghijklmop");
-	Write(LIGHTGRAY,BLACK,x-20,y,"¢¸");		
+	Write(LIGHTGRAY,BLACK,x-20,y,"ï¿½");		
 }
 
 void Sword(int x, int y, int sword){
 	if(sword==0){
-		Write(BROWN,BLACK,x,y,"¡Ø");
-	Write(DARKGRAY,BLACK,x-2,y,"¡ë");
-	Write(DARKGRAY,BLACK,x-4,y,"¡á");
-	Write(DARKGRAY,BLACK,x-4,y-1,"¡â");
-	Write(DARKGRAY,BLACK,x-4,y+1,"¡Ø");
-	Write(LIGHTGRAY,BLACK,x-15,y,"¢Æ¢Æ¢Æ¢Ê¢Æ¢Æ¢Ê¢Æ¢Æ");
-	Write(LIGHTGRAY,BLACK,x-20,y,"   ¢·");
+		Write(BROWN,BLACK,x,y,"ã€Ž");
+	Write(DARKGRAY,BLACK,x-2,y,"Â°");
+	Write(DARKGRAY,BLACK,x-4,y,"ï¼");
+	Write(DARKGRAY,BLACK,x-4,y-1,"â‰ ");
+	Write(DARKGRAY,BLACK,x-4,y+1,"ã€Ž");
+	Write(LIGHTGRAY,BLACK,x-15,y,"ï¿½ï¿½ï¿½âˆ§ï¿½ï¿½âˆ§ï¿½ï¿½");
+	Write(LIGHTGRAY,BLACK,x-20,y,"   ï¿½");
 	Write(LIGHTRED,BLACK,x-6,y-1,"  ");
 	Write(LIGHTRED,BLACK,x-6,y+1,"  ");	
 	Write(LIGHTRED,BLACK,x-7,y-1,"  ");
@@ -117,65 +117,65 @@ void Sword(int x, int y, int sword){
 	}
 else{
 	if(hardness>=0&&hardness<=1)
-	Write(BROWN,BLACK,x,y,"¡á");
+	Write(BROWN,BLACK,x,y,"ï¼");
 	else if(hardness>=2&&hardness<=4)
-	Write(BROWN,BLACK,x,y,"¢Ã");
+	Write(BROWN,BLACK,x,y,"ï¿½");
 	else if(hardness>=5&&hardness<=8)
-	Write(BROWN,BLACK,x,y,"¨Û");
+	Write(BROWN,BLACK,x,y,"ï¿½");
 	else if(hardness>=9&&hardness<=11)
-	Write(LIGHTRED,BLACK,x,y,"¨Û");
+	Write(LIGHTRED,BLACK,x,y,"ï¿½");
 	else if(hardness>=12&&hardness<=14)
-	Write(LIGHTRED,BLACK,x,y,"¢Á");
+	Write(LIGHTRED,BLACK,x,y,"âˆ©");
 	else if(hardness==15)
-	Write(LIGHTMAGENTA,BLACK,x,y,"¢Á");
+	Write(LIGHTMAGENTA,BLACK,x,y,"âˆ©");
 	
 	if(hardness>=0&&hardness<=8)
-	Write(DARKGRAY,BLACK,x-2,y,"¡ë");
+	Write(DARKGRAY,BLACK,x-2,y,"Â°");
 	else if(hardness>=9&&hardness<=14)
-	Write(RED,BLACK,x-2,y,"¡ë");
+	Write(RED,BLACK,x-2,y,"Â°");
 	else if(hardness==15)
-	Write(MAGENTA,BLACK,x-2,y,"¡ë");
+	Write(MAGENTA,BLACK,x-2,y,"Â°");
 	
 	if(power>=0&&power<=3)
-	Write(DARKGRAY,BLACK,x-4,y,"¡á");
+	Write(DARKGRAY,BLACK,x-4,y,"ï¼");
 	else if(power>=4&&power<=8)
-	Write(DARKGRAY,BLACK,x-4,y,"¢Ã");
+	Write(DARKGRAY,BLACK,x-4,y,"ï¿½");
 	else if(power>=9&&power<=11)
-	Write(LIGHTRED,BLACK,x-4,y,"¢Ã");
+	Write(LIGHTRED,BLACK,x-4,y,"ï¿½");
 	else if(power>=12&&power<=14)
-	Write(LIGHTRED,BLACK,x-4,y,"¢Ì");
+	Write(LIGHTRED,BLACK,x-4,y,"ï¿¢");
 	else if(power==15)
-	Write(LIGHTMAGENTA,BLACK,x-4,y,"¢Ì");
+	Write(LIGHTMAGENTA,BLACK,x-4,y,"ï¿¢");
 	
 	if(power>=0&&power<=2){
-	Write(DARKGRAY,BLACK,x-4,y-1,"¡ã");
-	Write(DARKGRAY,BLACK,x-4,y+1,"¡å");		
+	Write(DARKGRAY,BLACK,x-4,y-1,"ï¼œ");
+	Write(DARKGRAY,BLACK,x-4,y+1,"â‰¦");		
 	}
 	else if(power>=3&&power<=7){
-	Write(DARKGRAY,BLACK,x-4,y-1,"¡â");
-	Write(DARKGRAY,BLACK,x-4,y+1,"¡ä");		
+	Write(DARKGRAY,BLACK,x-4,y-1,"â‰ ");
+	Write(DARKGRAY,BLACK,x-4,y+1,"ï¼ž");		
 	}
 	else if(power>=8&&power<=11){
-	Write(RED,BLACK,x-4,y-1,"¡â");
-	Write(RED,BLACK,x-4,y+1,"¡ä");	
-	Write(LIGHTRED,BLACK,x-6,y-1,"¢×");
-	Write(LIGHTRED,BLACK,x-6,y+1,"¢Ø");		
+	Write(RED,BLACK,x-4,y-1,"â‰ ");
+	Write(RED,BLACK,x-4,y+1,"ï¼ž");	
+	Write(LIGHTRED,BLACK,x-6,y-1,"ï¿½");
+	Write(LIGHTRED,BLACK,x-6,y+1,"ï¿½");		
 	}
     else if(power>=12&&power<=14){
-	Write(RED,BLACK,x-4,y-1,"¡â");
-	Write(RED,BLACK,x-4,y+1,"¡ä");	
-	Write(LIGHTRED,BLACK,x-6,y-1,"¢×");
-	Write(LIGHTRED,BLACK,x-6,y+1,"¢Ø");	
-	Write(LIGHTRED,BLACK,x-7,y-1,"¢×");
-	Write(LIGHTRED,BLACK,x-7,y+1,"¢Ø");		
+	Write(RED,BLACK,x-4,y-1,"â‰ ");
+	Write(RED,BLACK,x-4,y+1,"ï¼ž");	
+	Write(LIGHTRED,BLACK,x-6,y-1,"ï¿½");
+	Write(LIGHTRED,BLACK,x-6,y+1,"ï¿½");	
+	Write(LIGHTRED,BLACK,x-7,y-1,"ï¿½");
+	Write(LIGHTRED,BLACK,x-7,y+1,"ï¿½");		
 	}
 	else if(power==15){
-	Write(MAGENTA,BLACK,x-4,y-1,"¡â");
-	Write(MAGENTA,BLACK,x-4,y+1,"¡ä");	
-	Write(LIGHTMAGENTA,BLACK,x-6,y-1,"¢×");
-	Write(LIGHTMAGENTA,BLACK,x-6,y+1,"¢Ø");	
-	Write(LIGHTMAGENTA,BLACK,x-7,y-1,"¢×");
-	Write(LIGHTMAGENTA,BLACK,x-7,y+1,"¢Ø");		
+	Write(MAGENTA,BLACK,x-4,y-1,"â‰ ");
+	Write(MAGENTA,BLACK,x-4,y+1,"ï¼ž");	
+	Write(LIGHTMAGENTA,BLACK,x-6,y-1,"ï¿½");
+	Write(LIGHTMAGENTA,BLACK,x-6,y+1,"ï¿½");	
+	Write(LIGHTMAGENTA,BLACK,x-7,y-1,"ï¿½");
+	Write(LIGHTMAGENTA,BLACK,x-7,y+1,"ï¿½");		
 	}
 	if(sharpness>=0&&sharpness<=2)
 	Write(LIGHTGRAY,LIGHTGRAY,x-15,y,"abcdefghijk");
@@ -186,15 +186,15 @@ else{
 	Write(RED,LIGHTGRAY,x-15,y,"=-=-===-=-=");	
 	}
 	else if(sharpness>=10&&sharpness<=12){
-	Write(RED,LIGHTGRAY,x-15,y,"=-=-===¢·¢Ç");	
+	Write(RED,LIGHTGRAY,x-15,y,"=-=-===ï¿½ï¿½");	
 	}
 	else if(sharpness>=13&&sharpness<=14){
 	sword_length=3;
-	Write(RED,LIGHTGRAY,x-15-sword_length,y,"¢¹ =-===-=¢·¢Ç");	
+	Write(RED,LIGHTGRAY,x-15-sword_length,y,"ï¿½ =-===-=ï¿½ï¿½");	
 	}
 	else if(sharpness==15){
 		sword_length=3;
-	Write(LIGHTMAGENTA,LIGHTGRAY,x-15-sword_length,y,"¢¹ =-===-=¢·¢Ç");	
+	Write(LIGHTMAGENTA,LIGHTGRAY,x-15-sword_length,y,"ï¿½ =-===-=ï¿½ï¿½");	
 	}
 	
 	else if(sharpness>=0&&sharpness<=2)
@@ -204,28 +204,28 @@ else{
 
 	
 	if(power>=0&&power<=2)
-	Write(LIGHTGRAY,BLACK,x-17-sword_length,y," ¢¸");	
+	Write(LIGHTGRAY,BLACK,x-17-sword_length,y," ï¿½");	
 	else if(power>=3&&power<=7)
-	Write(LIGHTGRAY,BLACK,x-17-sword_length,y," ¡ì");	
+	Write(LIGHTGRAY,BLACK,x-17-sword_length,y," â€²");	
 	else if(power>=8&&power<=11)
-	Write(RED,BLACK,x-17-sword_length,y," ¡ì");	
+	Write(RED,BLACK,x-17-sword_length,y," â€²");	
 	else if(power>=12&&power<=14)
-	Write(RED,BLACK,x-17-sword_length,y,"<¡ì");	
+	Write(RED,BLACK,x-17-sword_length,y,"<â€²");	
 	else if(power==15)
-	Write(MAGENTA,BLACK,x-17-sword_length,y,"<¡ì");	
+	Write(MAGENTA,BLACK,x-17-sword_length,y,"<â€²");	
 }
 	
 }
 void Human(int color, int x){
-	Write(color,BLACK,6+x,3,"¦£¦¡¦¡¦¤ ");
-	Write(color,BLACK,6+x,4,"¦¢..¦¢ ");
-	Write(color,BLACK,4+x,5,"¦£¦¡¦¥  ¦¦¦¡¦¤ ");
-	Write(color,BLACK,4+x,6,"¦¢      ¦¢ ");
-	Write(color,BLACK,4+x,7,"¦¢      ¦¢ ");
-	Write(color,BLACK,4+x,8,"¦¦¦¡¦¤  ¦£¦¡¦¥ ");
-	Write(color,BLACK,6+x,9,"¦¢  ¦¢ ");
-	Write(color,BLACK,6+x,10,"¦¢  ¦¢ ");
-	Write(color,BLACK,6+x,11,"¦¦¦¡¦¡¦¥ ");
+	Write(color,BLACK,6+x,3,"Î“Î‘Î‘Î” ");
+	Write(color,BLACK,6+x,4,"Î’..Î’ ");
+	Write(color,BLACK,4+x,5,"Î“Î‘Î•  Î–Î‘Î” ");
+	Write(color,BLACK,4+x,6,"Î’      Î’ ");
+	Write(color,BLACK,4+x,7,"Î’      Î’ ");
+	Write(color,BLACK,4+x,8,"Î–Î‘Î”  Î“Î‘Î• ");
+	Write(color,BLACK,6+x,9,"Î’  Î’ ");
+	Write(color,BLACK,6+x,10,"Î’  Î’ ");
+	Write(color,BLACK,6+x,11,"Î–Î‘Î‘Î• ");
 }
 
 ///////////////////////////////////////////////////////////////////////
@@ -233,7 +233,7 @@ void Human(int color, int x){
 ///////////////////////////////////////////////////////////////////////
 
 int main(){
-vector<string> level_name = {"¥å   ","¥å+","¥å++","¥å+++","¥ô   ","¥ô+ ","¥ô++","¥ô+++","¥ê   ","¥ê+  ","¥ê++ ","¥ê+++","¥æ   ","¥æ+  ","¥æ++ ","¥æ+++","¥ø   ","¥ø+  ","¥ø++ ","¥ø+++","¥ò   ","¥ò+  ","¥ò++ ","¥ò+++"};	 
+vector<string> level_name = {"ãƒ¥   ","ãƒ¥+","ãƒ¥++","ãƒ¥+++","ãƒ´   ","ãƒ´+ ","ãƒ´++","ãƒ´+++","ãƒª   ","ãƒª+  ","ãƒª++ ","ãƒª+++","ãƒ¦   ","ãƒ¦+  ","ãƒ¦++ ","ãƒ¦+++","ï¿½   ","ï¿½+  ","ï¿½++ ","ï¿½+++","ãƒ²   ","ãƒ²+  ","ãƒ²++ ","ãƒ²+++"};	 
 //////////////////////////////// 
 Cursorview();
 ////////////////////////////////
@@ -241,21 +241,21 @@ i=-3;
 j=6;
 while(i<=11){
 system("cls");
-Write(WHITE,BLACK,2,3,"¡Ý¡·=-==-==-===-==-==-=¡¶¡Ý");
-Write(WHITE,BLACK,2,9,"¡Ý¡·=-==-==-===-==-==-=¡¶¡Ý");
+Write(WHITE,BLACK,2,3,"ï¼ã€ƒ=-==-==-===-==-==-=ã‚žï¼");
+Write(WHITE,BLACK,2,9,"ï¼ã€ƒ=-==-==-===-==-==-=ã‚žï¼");
 Start_sword(35-i,j);
-Write(WHITE,BLACK,1.9*i+5,3,"¡¶¡Ý                        ");
-Write(WHITE,BLACK,1.9*i+5,9,"¡¶¡Ý                        ");
+Write(WHITE,BLACK,1.9*i+5,3,"ã‚žï¼                        ");
+Write(WHITE,BLACK,1.9*i+5,9,"ã‚žï¼                        ");
 Sleep(5);
 i+=2;
 }
 //////////////////////////////////////////////
-Write(LIGHTRED,BLACK,2,6,"¡í");
+Write(LIGHTRED,BLACK,2,6,"â€³");
 Sleep(25);
-Write(LIGHTRED,BLACK,0,6,"¡í");
+Write(LIGHTRED,BLACK,0,6,"â€³");
 Sleep(25);
-Write(LIGHTRED,BLACK,2,5,"¡Ø");
-Write(LIGHTRED,BLACK,2,7,"¡Ø");
+Write(LIGHTRED,BLACK,2,5,"ã€Ž");
+Write(LIGHTRED,BLACK,2,7,"ã€Ž");
 Sleep(50);
 Write(LIGHTRED,BLACK,2,6,"  ");
 Sleep(10);
@@ -265,25 +265,25 @@ Write(LIGHTRED,BLACK,2,5,"  ");
 Write(LIGHTRED,BLACK,2,7,"  ");
 Sleep(70);
 ///////////////////////////////////////////
-Write(LIGHTRED,BLACK,6,5,"¡ý");
-Write(LIGHTRED,BLACK,6,7,"¡ü");
-Write(BLACK,LIGHTGRAY,6,6,"£Ó");
+Write(LIGHTRED,BLACK,6,5,"â—Ž");
+Write(LIGHTRED,BLACK,6,7,"â—");
+Write(BLACK,LIGHTGRAY,6,6,"ï¼³");
 Sleep(20);
-Write(LIGHTRED,BLACK,6,5,"  ¡ý");
-Write(LIGHTRED,BLACK,6,7,"  ¡ü");
-Write(BLACK,LIGHTGRAY,8,6,"£×");
+Write(LIGHTRED,BLACK,6,5,"  â—Ž");
+Write(LIGHTRED,BLACK,6,7,"  â—");
+Write(BLACK,LIGHTGRAY,8,6,"ï¼·");
 Sleep(20);
-Write(LIGHTRED,BLACK,8,5,"  ¡ý");
-Write(LIGHTRED,BLACK,8,7,"  ¡ü");
-Write(BLACK,LIGHTGRAY,10,6,"£Ï");
+Write(LIGHTRED,BLACK,8,5,"  â—Ž");
+Write(LIGHTRED,BLACK,8,7,"  â—");
+Write(BLACK,LIGHTGRAY,10,6,"ï¼¯");
 Sleep(20);
-Write(LIGHTRED,BLACK,10,5,"  ¡ý");
-Write(LIGHTRED,BLACK,10,7,"  ¡ü");
-Write(BLACK,LIGHTGRAY,12,6,"£Ò");
+Write(LIGHTRED,BLACK,10,5,"  â—Ž");
+Write(LIGHTRED,BLACK,10,7,"  â—");
+Write(BLACK,LIGHTGRAY,12,6,"ï¼²");
 Sleep(20);
-Write(LIGHTRED,BLACK,12,5,"  ¡ý");
-Write(LIGHTRED,BLACK,12,7,"  ¡ü");
-Write(BLACK,LIGHTGRAY,14,6,"£Ä");
+Write(LIGHTRED,BLACK,12,5,"  â—Ž");
+Write(LIGHTRED,BLACK,12,7,"  â—");
+Write(BLACK,LIGHTGRAY,14,6,"ï¼¤");
 Sleep(20);
 Write(LIGHTRED,BLACK,14,5,"  ");
 Write(LIGHTRED,BLACK,14,7,"  ");
@@ -324,34 +324,34 @@ system("cls");
 
 while(1){
 	if(manu_select%3==0){
-		Write(WHITE,BLACK,5,2,"¡Ý¡·=-====-=¡¶¡Ý");
-	Write(WHITE,BLACK,5,3,"£ý Strengthen £û");
-	Write(WHITE,BLACK,5,4,"¡Ý¡·=-====-=¡¶¡Ý");
+		Write(WHITE,BLACK,5,2,"ï¼ã€ƒ=-====-=ã‚žï¼");
+	Write(WHITE,BLACK,5,3,"ï¿½ Strengthen ï¿½");
+	Write(WHITE,BLACK,5,4,"ï¼ã€ƒ=-====-=ã‚žï¼");
 	}
 	else{
-		Write(DARKGRAY,BLACK,5,2,"¡Ý¡·=-====-=¡¶¡Ý");
-	Write(DARKGRAY,BLACK,5,3,"£ý Strengthen £û");
-	Write(DARKGRAY,BLACK,5,4,"¡Ý¡·=-====-=¡¶¡Ý");
+		Write(DARKGRAY,BLACK,5,2,"ï¼ã€ƒ=-====-=ã‚žï¼");
+	Write(DARKGRAY,BLACK,5,3,"ï¿½ Strengthen ï¿½");
+	Write(DARKGRAY,BLACK,5,4,"ï¼ã€ƒ=-====-=ã‚žï¼");
 	}
 	if(manu_select%3==1){
-		Write(WHITE,BLACK,5,6,"¡Ý¡·=-====-=¡¶¡Ý");
-	Write(WHITE,BLACK,5,7,"£ý   Swords   £û");
-	Write(WHITE,BLACK,5,8,"¡Ý¡·=-====-=¡¶¡Ý");
+		Write(WHITE,BLACK,5,6,"ï¼ã€ƒ=-====-=ã‚žï¼");
+	Write(WHITE,BLACK,5,7,"ï¿½   Swords   ï¿½");
+	Write(WHITE,BLACK,5,8,"ï¼ã€ƒ=-====-=ã‚žï¼");
 	}
 	else{
-		Write(DARKGRAY,BLACK,5,6,"¡Ý¡·=-====-=¡¶¡Ý");
-	Write(DARKGRAY,BLACK,5,7,"£ý   Swords   £û");
-	Write(DARKGRAY,BLACK,5,8,"¡Ý¡·=-====-=¡¶¡Ý");
+		Write(DARKGRAY,BLACK,5,6,"ï¼ã€ƒ=-====-=ã‚žï¼");
+	Write(DARKGRAY,BLACK,5,7,"ï¿½   Swords   ï¿½");
+	Write(DARKGRAY,BLACK,5,8,"ï¼ã€ƒ=-====-=ã‚žï¼");
 	}
 	if(manu_select%3==2){
-	    Write(WHITE,BLACK,5,10,"¡Ý¡·========¡¶¡Ý");
-	Write(WHITE,BLACK,5,11,"£ýProbability£û");
-	Write(WHITE,BLACK,5,12,"¡Ý¡·========¡¶¡Ý");
+	    Write(WHITE,BLACK,5,10,"ï¼ã€ƒ========ã‚žï¼");
+	Write(WHITE,BLACK,5,11,"ï¿½Probabilityï¿½");
+	Write(WHITE,BLACK,5,12,"ï¼ã€ƒ========ã‚žï¼");
 	}
 	else{
-		Write(DARKGRAY,BLACK,5,10,"¡Ý¡·=-====-=¡¶¡Ý");
-	Write(DARKGRAY,BLACK,5,11,"£ýProbability£û");
-	Write(DARKGRAY,BLACK,5,12,"¡Ý¡·=-====-=¡¶¡Ý");
+		Write(DARKGRAY,BLACK,5,10,"ï¼ã€ƒ=-====-=ã‚žï¼");
+	Write(DARKGRAY,BLACK,5,11,"ï¿½Probabilityï¿½");
+	Write(DARKGRAY,BLACK,5,12,"ï¼ã€ƒ=-====-=ã‚žï¼");
 	}
 	if(manu_select%3==0){
 		Write(LIGHTGRAY,BLACK,23,3,"<==}");
@@ -415,12 +415,12 @@ Re_probability :
 	Write(WHITE,BLACK,2,5,"    Probability(%)   | ");
 	j=1;
 while(j<=per_select){
-	Write(BROWN,BLACK,5*j+19,5," ¡Ý  ");
+	Write(BROWN,BLACK,5*j+19,5," ï¼  ");
 	j+=1;
 }
 j=1;
 while(j<=15-per_select){
-Write(WHITE,BLACK,5*(16-j)+19,5," ¡Û  ");
+Write(WHITE,BLACK,5*(16-j)+19,5," ã€‘  ");
 	j+=1;	
 }
 	Write(WHITE,BLACK,2,7,"   Power Stregthen   | ");
@@ -627,29 +627,29 @@ Strengthen :
 	j=4;
 	while(i<=16){
 system("cls");
-Write(WHITE,BLACK,2,1,"¡Ý¡·=-==-==-========-==-==-=¡¶¡Ý");
-Write(WHITE,BLACK,2,7,"¡Ý¡·=-==-==-========-==-==-=¡¶¡Ý");
+Write(WHITE,BLACK,2,1,"ï¼ã€ƒ=-==-==-========-==-==-=ã‚žï¼");
+Write(WHITE,BLACK,2,7,"ï¼ã€ƒ=-==-==-========-==-==-=ã‚žï¼");
 Sword(40-i,j,1);
-Write(WHITE,BLACK,1.7*i+5,1,"¡¶¡Ý                            ");
-Write(WHITE,BLACK,1.7*i+5,7,"¡¶¡Ý                            ");
+Write(WHITE,BLACK,1.7*i+5,1,"ã‚žï¼                            ");
+Write(WHITE,BLACK,1.7*i+5,7,"ã‚žï¼                            ");
 Sleep(5); 
 i+=2;
 }
 Sleep(150); 
     j=9;
 	while(j<=20){	
-Write(WHITE,BLACK,2,1,"¡Ý¡·=-==-==-========-==-==-=¡¶¡Ý");
-Write(WHITE,BLACK,2,7,"¡Ý¡·=-==-==-========-==-==-=¡¶¡Ý"); 
+Write(WHITE,BLACK,2,1,"ï¼ã€ƒ=-==-==-========-==-==-=ã‚žï¼");
+Write(WHITE,BLACK,2,7,"ï¼ã€ƒ=-==-==-========-==-==-=ã‚žï¼"); 
 Sword(25,4,1);
-Write(WHITE,BLACK,2,9,"£Ó£×£Ï£Ò£Ä | level ¥å");
+Write(WHITE,BLACK,2,9,"ï¼³ï¼·ï¼¯ï¼²ï¼¤ | level ãƒ¥");
 Write(LIGHTGRAY,BLACK,2,11,"  Power  ==------------------=");
-Write(LIGHTGRAY,BLACK,2,12,"¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Û");
+Write(LIGHTGRAY,BLACK,2,12,"ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘");
 Write(DARKGRAY,BLACK,2,14,"Hardness ==-----------------=");
-Write(DARKGRAY,BLACK,2,15,"¡Û¡Û¡Û¡Û¡Þ¡Û¡Û¡Û¡Û¡Þ¡Û¡Û¡Û¡Û¡Û");
+Write(DARKGRAY,BLACK,2,15,"ã€‘ã€‘ã€‘ã€‘Â±ã€‘ã€‘ã€‘ã€‘Â±ã€‘ã€‘ã€‘ã€‘ã€‘");
 Write(DARKGRAY,BLACK,2,17,"Sharpness==-----------------=");
-Write(DARKGRAY,BLACK,2,18,"¡Û¡Û¡Û¡Û¡Û¡Û¡Û¡Þ¡Û¡Û¡Û¡Û¡Û¡Û¡Û");
+Write(DARKGRAY,BLACK,2,18,"ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘Â±ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘ã€‘");
 Write(WHITE,BLACK,2,j-1,"                                ");
-Write(WHITE,BLACK,2,j,"¡Ý¡·=-==-==-========-==-==-=¡¶¡Ý");
+Write(WHITE,BLACK,2,j,"ï¼ã€ƒ=-==-==-========-==-==-=ã‚žï¼");
 Write(WHITE,BLACK,2,j+1,"                                ");
 Write(WHITE,BLACK,2,j+2,"                                ");
 Write(WHITE,BLACK,2,j+3,"                                ");
@@ -670,7 +670,7 @@ basic_dam=rand()%20+90;
 ////////////////////////////////////////////////
 while(1){
 	Sword(25,4,level+1);
-Write(WHITE,BLACK,2,9,"£Ó£×£Ï£Ò£Ä | level ");
+Write(WHITE,BLACK,2,9,"ï¼³ï¼·ï¼¯ï¼²ï¼¤ | level ");
 level=(power*1.3+hardness+sharpness*1.3)/2.3;
 Gotoxy(21,9);
 cout<<level_name.at(level); 
@@ -679,12 +679,12 @@ if(str_select%3==0){
 Write(WHITE,BLACK,2,11,"  Power  ==------------------=");
 i=1;
 while(i<=power){
-	Write(BROWN,BLACK,2*i,12,"¡Ý");
+	Write(BROWN,BLACK,2*i,12,"ï¼");
 	i+=1;
 }
 i=1;
 while(i<=15-power){
-Write(WHITE,BLACK,2*(16-i),12,"¡Û");
+Write(WHITE,BLACK,2*(16-i),12,"ã€‘");
 	i+=1;	
 }
 }
@@ -692,12 +692,12 @@ else{
 Write(DARKGRAY,BLACK,2,11,"  Power  ==------------------=");
 i=1;
 while(i<=power){
-	Write(DARKGRAY,BLACK,2*i,12,"¡Ý");
+	Write(DARKGRAY,BLACK,2*i,12,"ï¼");
 	i+=1;
 }
 i=1;
 while(i<=15-power){
-Write(DARKGRAY,BLACK,2*(16-i),12,"¡Û");
+Write(DARKGRAY,BLACK,2*(16-i),12,"ã€‘");
 	i+=1;	
 }
 }
@@ -706,17 +706,17 @@ Write(WHITE,BLACK,2,14,"Hardness ==------------------=");
 i=1;
 while(i<=hardness){
 	if(i!=5&&i!=10)
-	Write(BROWN,BLACK,2*i,15,"¡Ý");
+	Write(BROWN,BLACK,2*i,15,"ï¼");
 	else
-	Write(BROWN,BLACK,2*i,15,"¢Â");
+	Write(BROWN,BLACK,2*i,15,"ï¿½");
 	i+=1;
 }
 i=1;
 while(i<=15-hardness){
 	if(16-i!=5&&16-i!=10)
-Write(WHITE,BLACK,2*(16-i),15,"¡Û");
+Write(WHITE,BLACK,2*(16-i),15,"ã€‘");
 else
-Write(WHITE,BLACK,2*(16-i),15,"¡Þ");
+Write(WHITE,BLACK,2*(16-i),15,"Â±");
 	i+=1;	
 }
 }
@@ -726,17 +726,17 @@ i=1;
 i=1;
 while(i<=hardness){
 	if(i!=5&&i!=10)
-	Write(DARKGRAY,BLACK,2*i,15,"¡Ý");
+	Write(DARKGRAY,BLACK,2*i,15,"ï¼");
 	else
-	Write(DARKGRAY,BLACK,2*i,15,"¢Â");
+	Write(DARKGRAY,BLACK,2*i,15,"ï¿½");
 	i+=1;
 }
 i=1;
 while(i<=15-hardness){
 	if(16-i!=5&&16-i!=10)
-Write(DARKGRAY,BLACK,2*(16-i),15,"¡Û");
+Write(DARKGRAY,BLACK,2*(16-i),15,"ã€‘");
 else
-Write(DARKGRAY,BLACK,2*(16-i),15,"¡Þ");
+Write(DARKGRAY,BLACK,2*(16-i),15,"Â±");
 	i+=1;	
 }
 }
@@ -745,17 +745,17 @@ Write(WHITE,BLACK,2,17,"Sharpness==------------------=");
 i=1;
 while(i<=sharpness){
 	if(i!=8)
-	Write(BROWN,BLACK,2*i,18,"¡Ý");
+	Write(BROWN,BLACK,2*i,18,"ï¼");
 	else
-	Write(BROWN,BLACK,2*i,18,"¢Â");
+	Write(BROWN,BLACK,2*i,18,"ï¿½");
 	i+=1;
 }
 i=1;
 while(i<=15-sharpness){
 	if(16-i!=8)
-Write(WHITE,BLACK,2*(16-i),18,"¡Û");
+Write(WHITE,BLACK,2*(16-i),18,"ã€‘");
 else 
-Write(WHITE,BLACK,2*(16-i),18,"¡Þ");
+Write(WHITE,BLACK,2*(16-i),18,"Â±");
 	i+=1;	
 }
 }
@@ -764,17 +764,17 @@ Write(DARKGRAY,BLACK,2,17,"Sharpness==------------------=");
 i=1;
 while(i<=sharpness){
 	if(i!=8)
-	Write(DARKGRAY,BLACK,2*i,18,"¡Ý");
+	Write(DARKGRAY,BLACK,2*i,18,"ï¼");
 	else
-	Write(DARKGRAY,BLACK,2*i,18,"¢Â");
+	Write(DARKGRAY,BLACK,2*i,18,"ï¿½");
 	i+=1;
 }
 i=1;
 while(i<=15-sharpness){
 	if(16-i!=8)
-Write(DARKGRAY,BLACK,2*(16-i),18,"¡Û");
+Write(DARKGRAY,BLACK,2*(16-i),18,"ã€‘");
 else 
-Write(DARKGRAY,BLACK,2*(16-i),18,"¡Þ");
+Write(DARKGRAY,BLACK,2*(16-i),18,"Â±");
 	i+=1;	
 }
 }
@@ -933,23 +933,23 @@ if(kbhit()){
 		}
 		i=0;
 		while(i<=17){
-			Write(WHITE,BLACK,2,11,"¡Ý¡·=-==-==-========-==-==-=¡¶¡Ý"); 
-			Write(WHITE,BLACK,1.7*i+2,11,"¡¶¡Ý                            ");
+			Write(WHITE,BLACK,2,11,"ï¼ã€ƒ=-==-==-========-==-==-=ã‚žï¼"); 
+			Write(WHITE,BLACK,1.7*i+2,11,"ã‚žï¼                            ");
 			Sleep(5);
 			i+=2;
 		}
 		Sleep(150);
 		i=0;
 		while(i<=17){
-			Write(WHITE,BLACK,2,20,"¡Ý¡·=-==-==-========-==-==-=¡¶¡Ý"); 
-			Write(WHITE,BLACK,1.7*i+2,20,"¡¶¡Ý                            ");
+			Write(WHITE,BLACK,2,20,"ï¼ã€ƒ=-==-==-========-==-==-=ã‚žï¼"); 
+			Write(WHITE,BLACK,1.7*i+2,20,"ã‚žï¼                            ");
 			Sleep(5);
 			i+=2;
 		}
 		Sleep(150);
 		i=0;
 		while(i<=17){
-             Write(WHITE,BLACK,2,13,"£Ó£×£Ï£Ò£Ä | level ");
+             Write(WHITE,BLACK,2,13,"ï¼³ï¼·ï¼¯ï¼²ï¼¤ | level ");
              Gotoxy(21,13);
              cout<<level_name.at(level); 
 			Write(WHITE,BLACK,1.7*i+2,13,"                           ");
@@ -1005,12 +1005,12 @@ Destroy :
 	Write(DARKGRAY,BLACK,2,11,"  Power  ==------------------=");
 i=1;
 while(i<=power){
-	Write(DARKGRAY,BLACK,2*i,12,"¡Ý");
+	Write(DARKGRAY,BLACK,2*i,12,"ï¼");
 	i+=1;
 }
 i=1;
 while(i<=15-power){
-Write(DARKGRAY,BLACK,2*(16-i),12,"¡Û");
+Write(DARKGRAY,BLACK,2*(16-i),12,"ã€‘");
 	i+=1;	
 }
 
@@ -1019,17 +1019,17 @@ i=1;
 i=1;
 while(i<=hardness){
 	if(i!=5&&i!=10)
-	Write(DARKGRAY,BLACK,2*i,15,"¡Ý");
+	Write(DARKGRAY,BLACK,2*i,15,"ï¼");
 	else
-	Write(DARKGRAY,BLACK,2*i,15,"¢Â");
+	Write(DARKGRAY,BLACK,2*i,15,"ï¿½");
 	i+=1;
 }
 i=1;
 while(i<=15-hardness){
 	if(16-i!=5&&16-i!=10)
-Write(DARKGRAY,BLACK,2*(16-i),15,"¡Û");
+Write(DARKGRAY,BLACK,2*(16-i),15,"ã€‘");
 else
-Write(DARKGRAY,BLACK,2*(16-i),15,"¡Þ");
+Write(DARKGRAY,BLACK,2*(16-i),15,"Â±");
 	i+=1;	
 }
 
@@ -1037,17 +1037,17 @@ Write(DARKGRAY,BLACK,2,17,"Sharpness==------------------=");
 i=1;
 while(i<=sharpness){
 	if(i!=8)
-	Write(DARKGRAY,BLACK,2*i,18,"¡Ý");
+	Write(DARKGRAY,BLACK,2*i,18,"ï¼");
 	else
-	Write(DARKGRAY,BLACK,2*i,18,"¢Â");
+	Write(DARKGRAY,BLACK,2*i,18,"ï¿½");
 	i+=1;
 }
 i=1;
 while(i<=15-sharpness){
 	if(16-i!=8)
-Write(DARKGRAY,BLACK,2*(16-i),18,"¡Û");
+Write(DARKGRAY,BLACK,2*(16-i),18,"ã€‘");
 else 
-Write(DARKGRAY,BLACK,2*(16-i),18,"¡Þ");
+Write(DARKGRAY,BLACK,2*(16-i),18,"Â±");
 	i+=1;	
 }
 ///////////////////////////////////////////////
@@ -1081,12 +1081,12 @@ Sword :
 	system("cls");
 	i=0;
 		while(i<=19){
-			Write(WHITE,BLACK,2,1,"¡Ý¡·==-==-==-==========-==-==-==¡¶¡Ý"); 
-			Write(WHITE,BLACK,1.75*i+2,1,"¡¶¡Ý                            ");
-			Write(WHITE,BLACK,2,13,"¡Ý¡·==-==-==-==========-==-==-==¡¶¡Ý"); 
-			Write(WHITE,BLACK,1.75*i+2,13,"¡¶¡Ý                            ");
-			Write(WHITE,BLACK,2,19,"¡Ý¡·==-==-==-==========-==-==-==¡¶¡Ý"); 
-			Write(WHITE,BLACK,1.75*i+2,19,"¡¶¡Ý                            ");
+			Write(WHITE,BLACK,2,1,"ï¼ã€ƒ==-==-==-==========-==-==-==ã‚žï¼"); 
+			Write(WHITE,BLACK,1.75*i+2,1,"ã‚žï¼                            ");
+			Write(WHITE,BLACK,2,13,"ï¼ã€ƒ==-==-==-==========-==-==-==ã‚žï¼"); 
+			Write(WHITE,BLACK,1.75*i+2,13,"ã‚žï¼                            ");
+			Write(WHITE,BLACK,2,19,"ï¼ã€ƒ==-==-==-==========-==-==-==ã‚žï¼"); 
+			Write(WHITE,BLACK,1.75*i+2,19,"ã‚žï¼                            ");
 			Sleep(5);
 			i+=2;
 		}
@@ -1108,7 +1108,7 @@ i=0;
 	Gotoxy(15,3);
 	textcolor(YELLOW,BLACK);
 	cout<<name<<"'S"<<"       ";
-	Write(WHITE,BLACK,14,4," £Ó£×£Ï£Ò£Ä | level ");
+	Write(WHITE,BLACK,14,4," ï¼³ï¼·ï¼¯ï¼²ï¼¤ | level ");
 	Sleep(5);
 	Gotoxy(33,4); 
     cout<<level_name.at(level); 
@@ -1166,45 +1166,45 @@ i+=1;
 	/////////////////////////////////////////////////////////
 	while(1){
 		if(swo_select%4==0){
-			Write(WHITE,BLACK,40,2,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(WHITE,BLACK,40,3,"£ý=-- MINE --=£û");
-			Write(WHITE,BLACK,40,4,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(WHITE,BLACK,40,2,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(WHITE,BLACK,40,3,"ï¿½=-- MINE --=ï¿½");
+			Write(WHITE,BLACK,40,4,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
 		else{
-			Write(DARKGRAY,BLACK,40,2,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(DARKGRAY,BLACK,40,3,"£ý=-- MINE --=£û");
-			Write(DARKGRAY,BLACK,40,4,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(DARKGRAY,BLACK,40,2,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(DARKGRAY,BLACK,40,3,"ï¿½=-- MINE --=ï¿½");
+			Write(DARKGRAY,BLACK,40,4,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
-		Write(LIGHTGRAY,BLACK,40,6,"¡Ý¡·=------=¡¶¡Ý");
+		Write(LIGHTGRAY,BLACK,40,6,"ï¼ã€ƒ=------=ã‚žï¼");
 		if(swo_select%4==1){
-			Write(WHITE,BLACK,40,8,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(WHITE,BLACK,40,9,"£ý=-- 1 st --=£û");
-			Write(WHITE,BLACK,40,10,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(WHITE,BLACK,40,8,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(WHITE,BLACK,40,9,"ï¿½=-- 1 st --=ï¿½");
+			Write(WHITE,BLACK,40,10,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
 		else{
-			Write(DARKGRAY,BLACK,40,8,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(DARKGRAY,BLACK,40,9,"£ý=-- 1 st --=£û");
-			Write(DARKGRAY,BLACK,40,10,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(DARKGRAY,BLACK,40,8,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(DARKGRAY,BLACK,40,9,"ï¿½=-- 1 st --=ï¿½");
+			Write(DARKGRAY,BLACK,40,10,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
 		if(swo_select%4==2){
-			Write(WHITE,BLACK,40,12,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(WHITE,BLACK,40,13,"£ý=-- 2 nd --=£û");
-			Write(WHITE,BLACK,40,14,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(WHITE,BLACK,40,12,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(WHITE,BLACK,40,13,"ï¿½=-- 2 nd --=ï¿½");
+			Write(WHITE,BLACK,40,14,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
 		else{
-			Write(DARKGRAY,BLACK,40,12,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(DARKGRAY,BLACK,40,13,"£ý=-- 2 nd --=£û");
-			Write(DARKGRAY,BLACK,40,14,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(DARKGRAY,BLACK,40,12,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(DARKGRAY,BLACK,40,13,"ï¿½=-- 2 nd --=ï¿½");
+			Write(DARKGRAY,BLACK,40,14,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
 		if(swo_select%4==3){
-			Write(WHITE,BLACK,40,16,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(WHITE,BLACK,40,17,"£ý=-- 3 rd --=£û");
-			Write(WHITE,BLACK,40,18,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(WHITE,BLACK,40,16,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(WHITE,BLACK,40,17,"ï¿½=-- 3 rd --=ï¿½");
+			Write(WHITE,BLACK,40,18,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
 		else{
-			Write(DARKGRAY,BLACK,40,16,"¡Ý¡·=-====-=¡¶¡Ý");
-			Write(DARKGRAY,BLACK,40,17,"£ý=-- 3 rd --=£û");
-			Write(DARKGRAY,BLACK,40,18,"¡Ý¡·=-====-=¡¶¡Ý");
+			Write(DARKGRAY,BLACK,40,16,"ï¼ã€ƒ=-====-=ã‚žï¼");
+			Write(DARKGRAY,BLACK,40,17,"ï¿½=-- 3 rd --=ï¿½");
+			Write(DARKGRAY,BLACK,40,18,"ï¼ã€ƒ=-====-=ã‚žï¼");
 		}
 		textcolor(WHITE,BLACK);
 		if(kbhit()){
